@@ -25,7 +25,7 @@ Form.addEventListener("submit", (e) => {
     );
   } else {
     api.getValues(coinSelected, cryptoCoinSelected).then((data) => {
-      console.log(data);
+      ui.ShowResult(data.result.RAW, coinSelected, cryptoCoinSelected);
     });
   }
 });
