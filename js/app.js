@@ -1,3 +1,6 @@
+const api = new Api(
+  "03a545b064d459319c4f388ebbacde6a6a5d6a5b7ea849d91fdd9cd6ac7d5ec6"
+);
 const ui = new UI();
 
 // read form
@@ -21,6 +24,8 @@ Form.addEventListener("submit", (e) => {
       "mensajes"
     );
   } else {
-    console.log("ok");
+    api.getValues(coinSelected, cryptoCoinSelected).then((data) => {
+      console.log(data);
+    });
   }
 });
