@@ -1,15 +1,12 @@
 body {
-  background: #136a8a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #136a8a,
-    #267871
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #136a8a,
-    #267871
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #eee;
+}
+.main {
+  height: 100vh !important;
+}
+.card-img {
+  margin-top: 1em;
+  height: 5% !important;
 }
 h1 {
   font-size: 34px;
@@ -135,5 +132,16 @@ form {
     -webkit-transform: perspective(140px) rotateY(180deg);
     transform: perspective(140px) rotateY(180deg);
     opacity: 0;
+  }
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .contenido-principal {
+    margin-top: 0px;
+    height: 120vh;
   }
 }
