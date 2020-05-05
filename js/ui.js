@@ -33,4 +33,45 @@ class UI {
       document.querySelector(`.${container} div`).remove();
     }, 3000);
   }
+  //insert
+  ShowResult(result, coin, cryptocoin) {
+    //if exist a other result clear
+
+    const lastResult = document.querySelector("#resultado div ");
+
+    lastResult ? lastResult.remove() : "";
+
+    const dataCoin = result[cryptocoin][coin];
+    //format price
+    let price = dataCoin.PRICE.toFixed(2);
+    let porcent = dataCoin.CHANGEDAY.toFixed(2);
+    let lastupdate = new Date(dataCoin.LASTUPDATE * 1000).toLocaleDateString(
+      "es-Mx"
+    );
+
+    //buil template
+    let templateHtml = `
+      <div class="card bg-warning">
+         <div class="card-body text-light">
+              <h2 class="card-title"></h2>
+              <p>el precio de ${dataCoin.FROMSYMBOL} a moneda ${dataCoin.TOSYMBOL} es de $ ${price}</P>
+              <p>variacion ultimo dia ${porcent}%</p>
+              <p> ultima actualizacion  ${lastupdate}</p>
+              
+         </div>
+      </div>
+    `;
+    this.showSpinner("block");
+
+    setTimeout(() => {
+      this.showSpinner("none");
+      document.querySelector("#resultado").innerHTML = templateHtml;
+    }, 3000);
+  }
+
+  //showSpinner
+  showSpinner(mode) {
+    const spinner = document.querySelector(".contenido-spinner");
+    spinner.style.display = mode;
+  }
 }
